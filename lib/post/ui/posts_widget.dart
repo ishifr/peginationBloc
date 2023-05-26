@@ -18,13 +18,15 @@ class _GetPostsWidgetState extends State<GetPostsWidget> {
   @override
   void initState() {
     // birinchi martta page ochilganda ishlidi
-    BlocProvider.of<PostBloc>(context).add(GetPostEvent(page: page,limit: limit));
+    BlocProvider.of<PostBloc>(context)
+        .add(GetPostEvent(page: page, limit: limit));
     scrollController.addListener(() {
       if (scrollController.position.maxScrollExtent ==
           scrollController.offset) {
         page++;
         // bu esa scroll bo'lganda ishlidi
-        BlocProvider.of<PostBloc>(context).add(GetPostEvent(page: page,limit: limit));
+        BlocProvider.of<PostBloc>(context)
+            .add(GetPostEvent(page: page, limit: limit));
       }
     });
     super.initState();
@@ -81,7 +83,8 @@ class _GetPostsWidgetState extends State<GetPostsWidget> {
           hasMore = true;
           page = 1;
           items.clear();
-          BlocProvider.of<PostBloc>(context).add(GetPostEvent(page: page,limit: limit));
+          BlocProvider.of<PostBloc>(context)
+              .add(GetPostEvent(page: page, limit: limit));
         }),
         child: child);
   }
